@@ -1,4 +1,4 @@
-package datos;
+package com.faba.javapp.datos;
 
 import java.sql.*;
 import org.apache.commons.dbcp2.BasicDataSource;

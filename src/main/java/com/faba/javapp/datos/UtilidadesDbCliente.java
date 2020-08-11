@@ -1,6 +1,6 @@
-package datos;
+package com.faba.javapp.datos;
 
-import dominio.Cliente;
+import com.faba.javapp.dominio.Cliente;
 import java.sql.*;
 import java.util.*;
 

@@ -1,4 +1,4 @@
-package dominio;
+package com.faba.javapp.dominio;
 
 public class Cliente {
 
