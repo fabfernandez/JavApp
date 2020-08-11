@@ -16,8 +16,9 @@ public class ServletControlador extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        System.out.println("Hola mundo");
-        response.getWriter().print("Hola Mundo WEB!!!");
+        //System.out.println("Hola mundo");
+        //response.getWriter().print("Hola Mundo WEB!!!");
+        
         List<Cliente> clientes = new UtilidadesDbCliente().listClients();
 
         String destination = "clientes.jsp";
