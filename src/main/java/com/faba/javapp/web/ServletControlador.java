@@ -3,7 +3,6 @@ package com.faba.javapp.web;
 import com.faba.javapp.datos.UtilidadesDbCliente;
 import com.faba.javapp.dominio.Cliente;
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -16,7 +15,18 @@ public class ServletControlador extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        
+
+        System.out.println("Hola mundo");
+        response.getWriter().print("Hola Mundo WEB!!!");
+        List<Cliente> clientes = new UtilidadesDbCliente().listClients();
+
+        String destination = "clientes.jsp";
+        RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
+
+        request.setAttribute("clientes", clientes);
+
+        requestDispatcher.forward(request, response);
+
         /*String accion = request.getParameter("accion");
         if (accion != null) {
             switch (accion) {
@@ -31,20 +41,6 @@ public class ServletControlador extends HttpServlet {
             }
         } else {
             this.accionDefault(request, response);*/
-
-        System.out.println("Hola mundo");
-        response.getWriter().print("Hola Mundo WEB!!!");
-        List<Cliente> clientes = new UtilidadesDbCliente().listClients();
-//        List<Cliente> clientes = new ArrayList<>();
-//        clientes.add(new Cliente("fabri", "fer", "hola@soyemail.com", "8888888", 899));
-//        clientes.add(new Cliente("mengano", "fer", "hola@soyemail.com", "999999", 6667));
-
-        String destination = "clientes.jsp";
-        RequestDispatcher requestDispatcher = request.getRequestDispatcher(destination);
-
-        request.setAttribute("clientes", clientes);
-        
-        requestDispatcher.forward(request, response);                 
     }
 
     private void accionDefault(HttpServletRequest request, HttpServletResponse response)
